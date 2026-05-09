@@ -6,11 +6,11 @@ export default function Home() {
       {/* Hero Section */}
       <section className="hero-card home-hero">
         <div className="hero-copy">
-          <span className="eyebrow">Interior Designers in Kochi</span>
+          {/* <span className="eyebrow">Interior Designers in Kochi</span> */}
           <h1 className="hero-title">DWUD INTERIORS</h1>
-          <p className="hero-subtitle">Home Interiors in Kochi</p>
+          {/* <p className="hero-subtitle">Home Interiors in Kochi</p> */}
           <div className="hero-actions">
-            <button className="cta-button">Free Estimate</button>
+            {/* <button className="cta-button">Free Estimate</button> */}
             <a href="tel:+917012444932" className="cta-button-secondary">Call Now</a>
           </div>
         </div>
@@ -34,7 +34,7 @@ export default function Home() {
       </section>
 
       {/* Offers Section with Images */}
-      <section className="content-card">
+      {/* <section className="content-card">
         <div className="section-header">
           <span className="eyebrow">Special Offers</span>
           <h2>Choose Your Perfect Package</h2>
@@ -56,7 +56,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Gallery/Projects Section */}
       <section className="content-card">
@@ -103,7 +103,7 @@ export default function Home() {
       </section>
 
       {/* Showrooms Section */}
-      <section className="content-card">
+      {/* <section className="content-card">
         <div className="section-header">
           <span className="eyebrow">Visit Us</span>
           <h2>Our Showrooms</h2>
@@ -122,10 +122,10 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Testimonials Section with Avatars */}
-      <section className="content-card">
+      {/* <section className="content-card">
         <div className="section-header">
           <span className="eyebrow">Success Stories</span>
           <h2>Client Testimonials</h2>
@@ -140,7 +140,7 @@ export default function Home() {
             </div>
           ))}
         </div>
-      </section>
+      </section> */}
 
       {/* Stats Section with Background Image */}
       <section className="content-card stats-section">
@@ -149,15 +149,15 @@ export default function Home() {
         </div>
         <div className="stats-grid">
           <div className="stat-item">
-            <div className="stat-number">14000+</div>
+            <div className="stat-number">7000+</div>
             <p>Satisfied Customers</p>
           </div>
           <div className="stat-item">
-            <div className="stat-number">500+</div>
+            <div className="stat-number">350+</div>
             <p>Projects Completed</p>
           </div>
           <div className="stat-item">
-            <div className="stat-number">15+</div>
+            <div className="stat-number">7+</div>
             <p>Years Experience</p>
           </div>
           <div className="stat-item">
