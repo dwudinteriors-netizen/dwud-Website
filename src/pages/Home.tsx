@@ -1,4 +1,4 @@
-import { PROCESS_STEPS, OFFERS, TESTIMONIALS, SHOWROOMS, PROJECTS } from '../data/constants';
+import { PROCESS_STEPS, OFFERS, TESTIMONIALS, SHOWROOMS, PROJECTS, whyChooseUs } from '../data/constants';
 
 export default function Home() {
   return (
@@ -19,8 +19,8 @@ export default function Home() {
       {/* Process Steps Section */}
       <section className="content-card">
         <div className="section-header">
-          <span className="eyebrow">Our Process</span>
-          <h2>Interior Design & Execution Process</h2>
+          {/* <span className="eyebrow">Our Interior Design Journey</span> */}
+          <h2>Our Interior Design Journey</h2>
         </div>
         <div className="process-grid">
           {PROCESS_STEPS.map((step) => (
@@ -84,21 +84,28 @@ export default function Home() {
         <div className="about-content">
           <div className="about-text">
             <span className="eyebrow">Why Choose Us</span>
-            <h2>Creating Exceptional Experiences Through Home Interiors</h2>
+            <h2>Transforming Homes into Extraordinary Experiences</h2>
             <p>
-              As seasoned interior designers, we have completed an extensive library of contemporary designs with truly opulent interior decoration. Our team works with clients from concept to installation, providing comprehensive design services.
+            With years of expertise in interior design, we’ve curated an extensive portfolio of contemporary and luxurious spaces. From the very first sketch to the final installation, our team ensures a seamless journey—delivering interiors that reflect elegance, comfort, and your unique personality.
             </p>
-            <ul className="features-list">
-              <li>✓ Expert Design Team</li>
+            <ul className="What Sets Us Apart">
+              {whyChooseUs.map((step) => (
+            <div key={step.icon} className="process-item">
+              <div className="process-number">{step.icon}</div>
+              <h3>{step.title}</h3>
+              <p>{step.description}</p>
+            </div>
+          ))}
+              {/* <li>✓ Expert Design Team</li>
               <li>✓ Quality Craftsmanship</li>
               <li>✓ Timely Execution</li>
-              <li>✓ 24/7 Support</li>
+              <li>✓ 24/7 Support</li> */}
             </ul>
             <button className="cta-button">Start Your Project</button>
           </div>
-          <div className="about-image">
+          {/* <div className="about-image">
             <img src="https://via.placeholder.com/500x400/2596BE/FFFFFF?text=Why+Choose+Us" alt="Our Team" className="section-image" />
-          </div>
+          </div> */}
         </div>
       </section>
 

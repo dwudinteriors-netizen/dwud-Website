@@ -23,7 +23,7 @@ function App() {
       </div>
 
       <header className="site-header">
-        <div className="brand">
+        {/* <div className="brand">
           <Link to="/" className="brand-link">
             <img src={logo} alt="Dwud Interiors logo" className="brand-logo" />
             <div>
@@ -31,7 +31,7 @@ function App() {
               <p>Timeless interiors designed for modern living.</p>
             </div>
           </Link>
-        </div>
+        </div> */}
 
         <nav className="nav-links">
           <NavLink to="/" end>

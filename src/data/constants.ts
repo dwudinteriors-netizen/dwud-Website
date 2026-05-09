@@ -1,25 +1,54 @@
 export const PROCESS_STEPS = [
+ {
+  number: '01',
+  title: 'Discover Your Vision',
+  description: 'We start by understanding your lifestyle, family needs, preferences, budget, and design aspirations.'
+},
+{
+  number: '02',
+  title: 'Creative Concept Development',
+  description: 'Our team presents mood boards, layouts, and detailed visuals so you can see your dream space taking shape.'
+},
+{
+  number: '03',
+  title: 'Design Detailing & Refinement',
+  description: 'From furniture placement to material selection, every detail is perfected for elegance and functionality.'
+},
+{
+  number: '04',
+  title: 'Premium Production',
+  description: 'Your approved designs are crafted at our manufacturing facility with the finest quality materials and craftsmanship.'
+},
+{
+  number: '05',
+  title: 'Flawless On-Site Execution',
+  description: 'Our experts ensure seamless installation, regular site checks, and finishing touches that bring your vision to life.'
+}
+];
+
+export const whyChooseUs = [
   {
-    number: '01',
-    title: 'Understand Client Requirements',
-    description: 'We learn about your family, preferences, budget, goals, and vision for your space.'
+    icon: '👩‍🎨',
+    title: 'Expert Design Team',
+    description: 'Creative minds dedicated to crafting spaces that inspire.'
   },
   {
-    number: '02',
-    title: 'Concept Development',
-    description: 'Clients see close-ups of real designs, elevations, furniture placements, and details.'
+    icon: '🛠️',
+    title: 'Quality Craftsmanship',
+    description: 'Premium materials and meticulous detailing for lasting beauty.'
   },
   {
-    number: '03',
-    title: 'Production',
-    description: 'Designs are sent to our manufacturing facility for production with highest quality materials.'
+    icon: '⏱️',
+    title: 'Timely Execution',
+    description: 'Projects delivered on schedule without compromising excellence.'
   },
   {
-    number: '04',
-    title: 'Execution at Site',
-    description: 'Our team coordinates regular site visits to ensure proper installation and finishing.'
+    icon: '📞',
+    title: '24/7 Support',
+    description: 'Always available to guide, assist, and ensure peace of mind.'
   }
 ];
+
 
 export const OFFERS = [
   {
