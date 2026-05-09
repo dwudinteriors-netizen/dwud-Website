@@ -9,6 +9,19 @@ import CallUs from './pages/CallUs';
 function App() {
   return (
     <div className="app-shell">
+      <div className="top-bar">
+        <div className="running-banner" role="status" aria-live="polite">
+          <div className="banner-track">
+            <span>
+              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 7012444932
+            </span>
+            <span>
+              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 7012444932
+            </span>
+          </div>
+        </div>
+      </div>
+
       <header className="site-header">
         <div className="brand">
           <Link to="/" className="brand-link">

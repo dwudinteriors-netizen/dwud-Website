@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&family=Montserrat:wght@400;600;800&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -9,9 +11,9 @@ html, body, #root {
 }
 
 body {
-  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background: #eff6ff;
-  color: #0f172a;
+  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: #ffffff;
+  color: rgb(26,26,26);
 }
 
 button, input, textarea, select {
