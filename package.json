@@ -12,6 +12,8 @@
     "deploy": "echo dwudinteriors.com > ./dist/CNAME && gh-pages -d dist"
   },
   "dependencies": {
+    "gapi": "^0.0.3",
+    "gis": "^0.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-router-dom": "^6.14.2"
@@ -20,8 +22,8 @@
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "gh-pages": "^5.0.0",
     "typescript": "^5.5.4",
-    "vite": "^5.4.1",
-    "gh-pages": "^5.0.0"
+    "vite": "^5.4.1"
   }
 }
