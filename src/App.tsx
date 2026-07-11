@@ -60,10 +60,10 @@ function App() {
         <div className="running-banner" role="status" aria-live="polite">
           <div className="banner-track">
             <span>
-              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 7012444932
+              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 9567 524 459, +91 8075 169 903
             </span>
             <span>
-              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 7012444932
+              Premium interior design services at affordable rates — End-to-end design &amp; execution, modular kitchens, smart storage, and renovation. Free estimate &amp; transparent pricing. Call +91 9567 524 459, +91 8075 169 903
             </span>
           </div>
         </div>

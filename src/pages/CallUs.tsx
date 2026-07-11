@@ -9,7 +9,7 @@ export default function CallUs() {
         <div className="contact-details">
           <div className="contact-item">
             <span className="contact-icon">📞</span>
-            <span>CALL US TODAY +91 7012444932</span>
+            <span>CALL US TODAY +91 9567 524 459, +91 8075 169 903</span>
           </div>
           <div className="contact-item">
             <span className="contact-icon">✉️</span>

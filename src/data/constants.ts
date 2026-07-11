@@ -203,7 +203,7 @@ export const PROJECTS = [
 ];
 
 export const CONTACT_INFO = {
-  phone: '+91 7012444932',
+  phone: '+91 9567 524 459, +91 8075 169 903',
   email: 'Dwudinteriors@gmail.com',
   website: 'dwudinteriors.com',
   address: 'Fortune Interiors, 470B Anita warehouse, Tharangini junction, Vazhayila-Kallayam Road'

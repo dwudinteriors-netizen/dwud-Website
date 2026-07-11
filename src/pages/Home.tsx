@@ -22,7 +22,7 @@ export default function Home() {
           {/* <p className="hero-subtitle">Home Interiors in Kochi</p> */}
           <div className="hero-actions">
             {/* <button className="cta-button">Free Estimate</button> */}
-            <a href="tel:+917012444932" className="cta-button-secondary">Call Now</a>
+            <a href="tel:+919567 524 459, +91 8075 169 903" className="cta-button-secondary">Call Now</a>
           </div>
         </div>
       </section>
