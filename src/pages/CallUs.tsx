@@ -21,7 +21,7 @@ export default function CallUs() {
           </div>
           <div className="contact-item">
             <span className="contact-icon">📍</span>
-            <span>Fortune Interiors, 470B Anita warehouse, Tharangini junction, Vazhayila-Kallayam Road</span>
+            <span>Door No. 1/5821/3, Vadakkumbhagum, Kazhakuttom, Thiruvananthapuram – 695582, Kerala, India</span>
           </div>
         </div>
       </section>
