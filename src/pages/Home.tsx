@@ -1,6 +1,17 @@
-import { PROCESS_STEPS, OFFERS, TESTIMONIALS, SHOWROOMS, PROJECTS, whyChooseUs } from '../data/constants';
+import { PROCESS_STEPS, OFFERS, TESTIMONIALS, SHOWROOMS, PROJECTS, whyChooseUs, loadDriveImages, DRIVE_IMAGE_FOLDER } from '../data/constants';
+import React, { useEffect, useState } from 'react';
 
 export default function Home() {
+  const [projects, setProjects] = useState(PROJECTS);
+
+  useEffect(() => {
+    let mounted = true;
+    loadDriveImages(DRIVE_IMAGE_FOLDER).then(() => {
+      if (mounted) setProjects([...PROJECTS]);
+    }).catch((e) => console.error('loadDriveImages failed', e));
+    return () => { mounted = false };
+  }, []);
+
   return (
     <div className="page-section home-page">
       {/* Hero Section */}
@@ -65,7 +76,7 @@ export default function Home() {
           <h2>Completed Projects</h2>
         </div>
         <div className="gallery-grid">
-          {PROJECTS.map((project) => (
+          {projects.map((project) => (
             <div key={project.id} className="gallery-item">
               <div className="gallery-image-container">
                 <img src={project.image} alt={project.title} className="gallery-image" />

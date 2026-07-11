@@ -1,3 +1,51 @@
+export const DRIVE_IMAGE_FOLDER = 'https://drive.google.com/drive/folders/1x-7pxl8Y18ddyKU1UmW4D7rcs8WX7H3F?usp=sharing';
+
+import driveService from '../services/driveService';
+
+/**
+ * Populate project image URLs from a Drive folder. Matches files by name (without extension)
+ * to the `title` of each project. Files must be accessible (shared) for direct linking.
+ * Call `await loadDriveImages()` at app start (after sign-in if files are private).
+ */
+export async function loadDriveImages(folderUrl?: string) {
+  const folderId = driveService.extractFolderIdFromUrl(folderUrl || DRIVE_IMAGE_FOLDER);
+  if (!folderId) return;
+
+  // Ensure Drive client is initialized. If not, try to init using Vite env vars.
+  if (!window.gapi || !window.gapi.client || !window.gapi.client.drive) {
+    const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+    const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+    if (!apiKey || !clientId) {
+      throw new Error('VITE_GOOGLE_API_KEY or VITE_GOOGLE_CLIENT_ID not set. Add them to .env and restart the dev server.');
+    }
+    await driveService.initDrive({ apiKey, clientId });
+  }
+
+  let files;
+  try {
+    files = await driveService.listFilesRecursive(folderId, 1000);
+  } catch (err: any) {
+    throw new Error(`Drive list failed: ${err?.message || String(err)}`);
+  }
+  console.info('Drive: files found', files.length);
+  const map = new Map<string, any>();
+  files.forEach((f: any) => {
+    const nameKey = String(f.name || '').replace(/\.[^.]+$/, '').trim().toLowerCase();
+    map.set(nameKey, f);
+  });
+
+  PROJECTS.forEach((p) => {
+    const key = String(p.title).trim().toLowerCase();
+    const file = map.get(key);
+    if (file) {
+      console.debug('Drive file object for match:', file);
+      const resolved = driveService.getPublicFileUrl(file.id) || file.webContentLink || file.webViewLink || file.thumbnailLink || p.image;
+      p.image = resolved;
+      console.info(`Drive: matched ${p.title} -> ${file.name} (using ${resolved.includes(file.id) ? 'uc?id' : 'web link'})`);
+    }
+  });
+}
+
 export const PROCESS_STEPS = [
  {
   number: '01',
@@ -9,6 +57,7 @@ export const PROCESS_STEPS = [
   title: 'Creative Concept Development',
   description: 'Our team presents mood boards, layouts, and detailed visuals so you can see your dream space taking shape.'
 },
+
 {
   number: '03',
   title: 'Design Detailing & Refinement',
@@ -119,37 +168,37 @@ export const PROJECTS = [
     id: 1,
     title: 'Modern Living Room',
     category: 'Residential',
-    image: 'https://via.placeholder.com/400x300/2596BE/FFFFFF?text=Living+Room'
+    image: 'https://via.placeholder.com/400x300/2596BE/FFFFFF?text=Modern+Living+Room'
   },
   {
     id: 2,
     title: 'Kitchen Design',
     category: 'Interior Design',
-    image: 'https://via.placeholder.com/400x300/142365/FFFFFF?text=Kitchen'
+    image: 'https://via.placeholder.com/400x300/142365/FFFFFF?text=Kitchen+Design'
   },
   {
     id: 3,
     title: 'Master Bedroom',
     category: 'Residential',
-    image: 'https://via.placeholder.com/400x300/4338CA/FFFFFF?text=Bedroom'
+    image: 'https://via.placeholder.com/400x300/4338CA/FFFFFF?text=Master+Bedroom'
   },
   {
     id: 4,
     title: 'Home Office',
     category: 'Modern',
-    image: 'https://via.placeholder.com/400x300/2596BE/FFFFFF?text=Office'
+    image: 'https://via.placeholder.com/400x300/2596BE/FFFFFF?text=Home+Office'
   },
   {
     id: 5,
     title: 'Dining Area',
     category: 'Renovation',
-    image: 'https://via.placeholder.com/400x300/142365/FFFFFF?text=Dining'
+    image: 'https://via.placeholder.com/400x300/142365/FFFFFF?text=Dining+Area'
   },
   {
     id: 6,
     title: 'Full Apartment',
     category: 'Complete Design',
-    image: 'https://via.placeholder.com/400x300/4338CA/FFFFFF?text=Apartment'
+    image: 'https://via.placeholder.com/400x300/4338CA/FFFFFF?text=Full+Apartment'
   }
 ];
 

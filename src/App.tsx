@@ -1,12 +1,59 @@
 import './App.css';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink, Routes, Route } from 'react-router-dom';
 import logo from './images/logo1.png';
 import Home from './pages/Home';
 import AboutUs from './pages/AboutUs';
 import OurServices from './pages/OurServices';
 import CallUs from './pages/CallUs';
+import driveService from './services/driveService';
+import { loadDriveImages, DRIVE_IMAGE_FOLDER } from './data/constants';
 
 function App() {
+  const [driveReady, setDriveReady] = useState(false);
+  const [driveStatus, setDriveStatus] = useState('');
+  const [driveError, setDriveError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function initDrive() {
+      const apiKey = import.meta.env.VITE_GOOGLE_API_KEY;
+      const clientId = import.meta.env.VITE_GOOGLE_CLIENT_ID;
+      if (!apiKey || !clientId) {
+        setDriveStatus('Drive keys missing');
+        console.warn('VITE_GOOGLE_API_KEY or VITE_GOOGLE_CLIENT_ID not set - skipping Drive init');
+        return;
+      }
+      try {
+        await driveService.initDrive({ apiKey, clientId });
+        setDriveReady(true);
+        setDriveStatus('Drive initialized. Sign in to load images.');
+      } catch (err) {
+        console.error('Failed to initialize Drive', err);
+        setDriveError(String(err));
+        setDriveStatus('Drive initialization failed');
+      }
+    }
+    initDrive();
+  }, []);
+
+  async function handleDriveSignIn() {
+    if (!driveReady) {
+      setDriveError('Drive SDK is not ready yet');
+      return;
+    }
+    setDriveStatus('Requesting Drive access...');
+    try {
+      await driveService.requestDriveToken('consent');
+      setDriveStatus('Drive access granted. Loading images...');
+      await loadDriveImages(DRIVE_IMAGE_FOLDER);
+      setDriveStatus('Drive images loaded');
+      setDriveError(null);
+    } catch (err) {
+      console.error('Drive sign-in failed', err);
+      setDriveError(String(err));
+      setDriveStatus('Drive sign-in failed');
+    }
+  }
   return (
     <div className="app-shell">
       <div className="top-bar">
@@ -21,6 +68,13 @@ function App() {
           </div>
         </div>
       </div>
+      {/* <div className="drive-status-bar">
+        <span>{driveStatus}</span>
+        {driveError && <span className="drive-error">{driveError}</span>}
+        <button className="cta-button-secondary" type="button" onClick={handleDriveSignIn} disabled={!driveReady}>
+          Sign in to Drive
+        </button>
+      </div> */}
 
       <header className="site-header">
         {/* <div className="brand">
