@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default function CallUs() {
-  return (
+  return ( 
     <div className="page-section">
       <section className="content-card white-box">
         <span className="eyebrow">Call Us</span>
